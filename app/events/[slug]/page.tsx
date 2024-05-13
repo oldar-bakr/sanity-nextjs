@@ -6,6 +6,7 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client, sanityFetch } from "@/src/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
+import {urlFor} from './utils/urlFor'
 
 const EVENT_QUERY = `*[
     _type == "event" &&
@@ -15,12 +16,6 @@ const EVENT_QUERY = `*[
   headline->,
   venue->
 }`;
-
-const { projectId, dataset } = client.config();
-export const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
 
 export default async function EventPage({
   params,
@@ -127,3 +122,4 @@ export default async function EventPage({
     </main>
   );
 }
+
