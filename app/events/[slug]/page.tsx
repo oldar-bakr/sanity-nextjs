@@ -2,11 +2,10 @@ import { PortableText } from "@portabletext/react";
 import { SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client, sanityFetch } from "@/src/sanity/client";
 import Link from "next/link";
 import Image from "next/image";
-import {urlFor} from './utils/urlFor'
+import {urlFor} from '@/utils/urlFor'
 
 const EVENT_QUERY = `*[
     _type == "event" &&
